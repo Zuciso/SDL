@@ -36,7 +36,6 @@ class Customer implements Serializable {
         userAddress= me.next();
         System.out.println("MemberShip type \n1.PLATINUM\n2.GOLD\n3.SILVER");
         userType = me.nextInt();
-        Service.passwords.put(userName,userPassword);
 
     }
 

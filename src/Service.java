@@ -9,10 +9,10 @@ public class Service implements Serializable {
 
       static Scanner me = new Scanner(System.in);
       static PriorityQueue<Vehicle>Pqueue = new PriorityQueue<Vehicle>(new The_Comparator());
-      static HashMap<String,String> passwords = new HashMap<String,String>();
+
       static HashSet<String> username =new HashSet<String>();
       static ArrayList<Vehicle> Vehicle_list =new ArrayList<Vehicle>();
-
+      static ArrayList<Customer> Customers = new ArrayList<Customer>();
     //Maps user -> paswords
 
 
@@ -36,6 +36,7 @@ public class Service implements Serializable {
         Customer  c = new Customer();
         Client cli = new Client("localhost", 5000);
         cli.socket_write("signup");
+        Customers.add(c);
         cli.socket_write(c);
         System.out.println("User registered successfully ");
 
@@ -46,8 +47,13 @@ public class Service implements Serializable {
         name = me.next();
         System.out.println("Password : ");
         pass = me.next();
+        Client c = new Client("localhost", 5000);
+        c.socket_write("login");
+        c.socket_write(name);
+        c.socket_write(pass);
+        String valid=(String)c.socket_read();
 
-        if(pass.equals(passwords.get(name)))
+        if(valid.equals("yes"))
         {
             System.out.println("Welcome back,");
             if(name.equals("Admin"))
@@ -106,7 +112,7 @@ public class Service implements Serializable {
 
 
     public static void main(String[] args) {
-        passwords.put("Admin","Admin");
+
         username.add("Admin");
         menu();
 

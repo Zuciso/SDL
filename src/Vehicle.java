@@ -1,4 +1,6 @@
-class Vehicle{
+import java.io.Serializable;
+
+class Vehicle implements Serializable {
     Integer number;
     String model;
     String owner_name;

@@ -9,7 +9,7 @@ public class Client {
     public Client(String ip, int port) {
         try {
             socket = new Socket(ip, port);
-            System.out.println("Connected to server");
+
             instream = new ObjectInputStream(socket.getInputStream());
             outstream = new ObjectOutputStream(socket.getOutputStream());
         } catch (UnknownHostException u) {

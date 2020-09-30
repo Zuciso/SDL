@@ -1,3 +1,4 @@
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Admin {
@@ -11,9 +12,12 @@ public class Admin {
 
     }
     static  void view(){
+        Client cli = new Client("localhost",5000);
+        cli.socket_write("viewlist");
+        PriorityQueue<Vehicle> Pqueue =  cli.socket_read();
 
         Integer z=1;
-        for(Vehicle i:Service.Pqueue){
+        for(Vehicle i:Pqueue){
             System.out.println("----------------------");
             System.out.println("Priority no:"+ z);
             i.Display();
@@ -22,29 +26,10 @@ public class Admin {
         }
     }
     static void update(){
-        Vehicle V = Service.Pqueue.poll();
-        if(Service.Pqueue.size()==0){
-            System.out.println("NO MORE WORK");
-
-        }
-        int where=-1;
-        for(int i=0;i<Service.Customers.size();i++){
-            Customer temp=Service.Customers.get(i);
-
-            if(temp.userName.equals(V.owner_name)){
-                where=i;
-            }
-        }
-
-        Customer S = Service.Customers.get(where);
-        for(int i=0;i<S.Vehicles.size();i++){
-            if(S.Vehicles.get(i).number==(V.number)) {
-                S.Vehicles.get(i).status="DONE";
-            }
-
-        }
-        //S.Vehicles=temp;
-        Service.Customers.set(where,S);
+        Client cli= new Client("localhost",5000);
+        cli.socket_write("update");
+        String s= (String)cli.socket_read();
+        System.out.println(s);
     }
     static void info(){
 

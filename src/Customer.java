@@ -63,6 +63,8 @@ class Customer implements Serializable {
     }
     void add_vehicle()
     {
+        Client cli = new Client("localhost",5000);
+        cli.socket_write("addvehicle");
         String vmodel="";
         Integer vnumber;
         System.out.print("Enter Vehicle Number : ");
@@ -70,12 +72,13 @@ class Customer implements Serializable {
         System.out.print("Enter Vehicle Model : ");
         vmodel = me.next();
         Vehicle temp = new Vehicle(vnumber,vmodel,userName,userType);
-        Service.Pqueue.add(temp);
+        cli.socket_write(temp);
         Vehicles.add(temp);
-        Service.Vehicle_list.add(temp);
     }
     void Display(){
-        System.out.println("My Vehicles");
+
+
+
         for(int i=0;i<Vehicles.size();i++){
             System.out.println("-------------------------");
             System.out.println("Vehicle Number " + Vehicles.get(i).number);

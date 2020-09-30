@@ -8,19 +8,19 @@ import java.lang.*;
 public class Service implements Serializable {
 
       static Scanner me = new Scanner(System.in);
-      static PriorityQueue<Vehicle>Pqueue = new PriorityQueue<Vehicle>(new The_Comparator());
 
       static HashSet<String> username =new HashSet<String>();
-      static ArrayList<Vehicle> Vehicle_list =new ArrayList<Vehicle>();
-      static ArrayList<Customer> Customers = new ArrayList<Customer>();
+
+
     //Maps user -> paswords
 
 
 
     static <T> void getVehicle(T element)
     {
+
         int f=0;
-        for(Vehicle p : Vehicle_list)
+        for(Vehicle p : ServerSide.Vehicle_list)
         {
             if(p.equals(element)) {
                 p.Display();
@@ -36,7 +36,6 @@ public class Service implements Serializable {
         Customer  c = new Customer();
         Client cli = new Client("localhost", 5000);
         cli.socket_write("signup");
-        Customers.add(c);
         cli.socket_write(c);
         System.out.println("User registered successfully ");
 
@@ -51,27 +50,19 @@ public class Service implements Serializable {
         c.socket_write("login");
         c.socket_write(name);
         c.socket_write(pass);
+
         String valid=(String)c.socket_read();
 
         if(valid.equals("yes"))
         {
-            System.out.println("Welcome back,");
-            if(name.equals("Admin"))
-            {
+            if(name.equals("Admin")){
                 Admin.menu();
             }
-            else
-            {
-                int where=-1;
-                for(int i=0;i<Customers.size();i++){
-                    Customer temp=Customers.get(i);
-
-                    if(temp.userName.equals(name)){
-                        where=i;
-                    }
-                }
-                Customers.get(where).menu();
+            else{
+                Customer cus=(Customer)c.socket_read();
+                cus.menu();
             }
+
 
         }
         else

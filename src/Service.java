@@ -5,6 +5,7 @@ import java.lang.*;
 
 
 public class Service {
+      int z;
       static Scanner me = new Scanner(System.in);
       static PriorityQueue<Vehicle>Pqueue = new PriorityQueue<Vehicle>(new The_Comparator());
       static ArrayList<Customer>Customers = new ArrayList<Customer>();
@@ -31,10 +32,10 @@ public class Service {
         }
 
     }
-    static  void signup(){
+    static void signup(){
         Customer c=new Customer();
         Customers.add(c);
-        System.out.println("User registered successfully");
+        System.out.println("User registered successfully ");
 
     }
     static void login(){

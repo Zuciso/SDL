@@ -4,6 +4,7 @@ public class Admin {
     static Scanner me = new Scanner(System.in);
 
     static  void view(){
+
         Integer z=1;
         for(Vehicle i:Service.Pqueue){
             System.out.println("----------------------");

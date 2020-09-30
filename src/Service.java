@@ -5,7 +5,7 @@ import java.lang.*;
 
 
 public class Service {
-      int z;
+
       static Scanner me = new Scanner(System.in);
       static PriorityQueue<Vehicle>Pqueue = new PriorityQueue<Vehicle>(new The_Comparator());
       static ArrayList<Customer>Customers = new ArrayList<Customer>();

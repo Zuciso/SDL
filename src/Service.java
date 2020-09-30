@@ -1,14 +1,14 @@
 
+import java.io.Serializable;
 import java.util.*;
 import java.lang.*;
 
 
 
-public class Service {
+public class Service implements Serializable {
 
       static Scanner me = new Scanner(System.in);
       static PriorityQueue<Vehicle>Pqueue = new PriorityQueue<Vehicle>(new The_Comparator());
-      static ArrayList<Customer>Customers = new ArrayList<Customer>();
       static HashMap<String,String> passwords = new HashMap<String,String>();
       static HashSet<String> username =new HashSet<String>();
       static ArrayList<Vehicle> Vehicle_list =new ArrayList<Vehicle>();
@@ -34,7 +34,6 @@ public class Service {
     }
     static void signup(){
         Customer  c = new Customer();
-        Customers.add(c);
         Client cli = new Client("localhost", 5000);
         cli.socket_write("signup");
         cli.socket_write(c);

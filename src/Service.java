@@ -33,8 +33,11 @@ public class Service {
 
     }
     static void signup(){
-        Customer c=new Customer();
+        Customer  c = new Customer();
         Customers.add(c);
+        Client cli = new Client("localhost", 5000);
+        cli.socket_write("signup");
+        cli.socket_write(c);
         System.out.println("User registered successfully ");
 
     }

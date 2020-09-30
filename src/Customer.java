@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Customer{
+class Customer implements Serializable {
      Service se=new Service();
     static Scanner me = new Scanner(System.in);
     String userName;
@@ -75,6 +76,7 @@ class Customer{
         Service.Vehicle_list.add(temp);
     }
     void Display(){
+        System.out.println("My Vehicles");
         for(int i=0;i<Vehicles.size();i++){
             System.out.println("-------------------------");
             System.out.println("Vehicle Number " + Vehicles.get(i).number);

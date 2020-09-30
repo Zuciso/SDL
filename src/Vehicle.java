@@ -15,6 +15,7 @@ class Vehicle{
         priority=pr;
     }
     void Display(){
+
         System.out.println("Vehicle Number "+number);
         System.out.println("Vehicle Model "+model);
         System.out.println("Owner Name "+ owner_name);

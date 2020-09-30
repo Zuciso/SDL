@@ -2,7 +2,14 @@ import java.util.Scanner;
 
 public class Admin {
     static Scanner me = new Scanner(System.in);
+    String username;
+    String pass;
 
+    Admin(String s, String p) {
+        this.username = s;
+        this.pass = p;
+
+    }
     static  void view(){
 
         Integer z=1;

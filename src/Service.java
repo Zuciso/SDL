@@ -110,107 +110,13 @@ public class Service implements Serializable {
     public static void main(String[] args) {
 
         username.add("Admin");
-        new home();
+
         menu();
 
 
     }
 }
 
-class home extends JFrame implements ActionListener {
-    JButton b1,b2;
-    public home(){
-
-        b1=new JButton("Login");
-        b2=new JButton("Signup");
-        JPanel ok = new JPanel();
-        ok.setLayout(new GridLayout(2,1));
-        ok.add(b1);
-        ok.add(b2);
-        add(ok);
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-
-        setVisible(true);
-        setSize(200,200);
-        setLayout(new FlowLayout());
-        setLocation(500,300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-            if(e.getSource()==b1){
-                new Signupgui();
-                System.out.println("ok");
-                dispose();
-            }
-            else{
-                new Logingui();
-                dispose();
-            }
-    }
-}
-class Signupgui extends JFrame implements ActionListener {
-    JTextField t1,t2,t3,t4,t5;
-    JButton b1;
-    public Signupgui() {
-
-        t1=new JTextField("UserName");
-        t2=new JTextField("PassWord");
-        t3=new JTextField("Mobile Number");
-        t4=new JTextField("Address");
-        b1=new JButton("Submit");
-
-        JPanel j = new JPanel();
-        j.setLayout(new GridLayout(5,1));
-        j.add(t1);
-        j.add(t2);
-        j.add(t3);
-        j.add(t4);
-        j.add(b1);
-        add(j);
-        b1.addActionListener(this);
-        setVisible(true);
-        setSize(200, 200);
-        setLayout(new FlowLayout());
-        setLocation(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-}
-class Logingui extends JFrame implements ActionListener{
-    JTextField t1,t2;
-    JButton b1;
-    public Logingui(){
-        t1=new JTextField("UserName");
-        t2=new JTextField("PassWord");
-        b1=new JButton("Submit");
-
-        JPanel j = new JPanel();
-        j.setLayout(new GridLayout(3,1));
-        j.add(t1);
-        j.add(t2);
-        j.add(b1);
-        add(j);
-        setVisible(true);
-        b1.addActionListener(this);
-        setSize(200, 200);
-        setLayout(new FlowLayout());
-        setLocation(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-}
 
 
 

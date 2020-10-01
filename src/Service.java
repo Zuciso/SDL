@@ -20,7 +20,7 @@ public class Service implements Serializable {
     {
 
         int f=0;
-        for(Vehicle p : ServerSide.Vehicle_list)
+        for(Vehicle p : ClientHandler.Vehicle_list)
         {
             if(p.equals(element)) {
                 p.Display();
